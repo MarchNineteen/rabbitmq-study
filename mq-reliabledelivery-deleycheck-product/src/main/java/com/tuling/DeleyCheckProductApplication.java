@@ -2,15 +2,17 @@ package com.tuling;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @EnableTransactionManagement
-@EnableScheduling
-public class MqReliabledeliveryDelayChechOrderApplication {
+@RestController
+public class DeleyCheckProductApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MqReliabledeliveryDelayChechOrderApplication.class, args);
+		SpringApplication.run(DeleyCheckProductApplication.class, args);
 	}
+
+
 }

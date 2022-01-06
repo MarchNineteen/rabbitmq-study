@@ -17,7 +17,7 @@ import java.util.UUID;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MqReliabledeliveryDttOrderApplicationTests {
+public class DttOrderApplicationTests {
 
 
 

@@ -2,9 +2,9 @@
 spring:
   datasource:
       druid:
-        username: root
-        password: Zw726515
-        jdbcUrl: jdbc:mysql://localhost:3306/tuling-mq?serverTimezone=UTC
+        username: mq
+        password: mqPwd
+        jdbcUrl: jdbc:mysql://111.231.85.51:3306/tuling-mq?serverTimezone=UTC
         driverClassName: com.mysql.jdbc.Driver
         initialSize: 5
         minIdle: 5
@@ -22,11 +22,11 @@ spring:
         useGlobalDataSourceStat: true
         connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   rabbitmq:
-      host: 192.168.159.8
+      host: 111.231.85.51
       port: 5672
-      virtual-host: tuling
-      username: smlz
-      password: smlz
+      virtual-host: test
+      username: test
+      password: test
       listener:
         simple:
           concurrency: 5
@@ -49,4 +49,4 @@ logging:
   level:
     com.tuling.mapper: debug
 server:
-  port: 8888
+  port: 888

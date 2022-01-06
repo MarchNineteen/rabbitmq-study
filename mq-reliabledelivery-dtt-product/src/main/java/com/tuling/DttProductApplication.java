@@ -6,10 +6,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
-public class TulingReliabledeliveryDttProductApplication {
+public class DttProductApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TulingReliabledeliveryDttProductApplication.class, args);
+		SpringApplication.run(DttProductApplication.class, args);
 	}
 
 }
