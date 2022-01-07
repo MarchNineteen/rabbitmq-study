@@ -39,7 +39,7 @@ mybatis:
     map-underscore-to-camel-case: true
 logging:
   level:
-    com.tuling.mapper: debug
+    com.wyb.mapper: debug
 
 
 
