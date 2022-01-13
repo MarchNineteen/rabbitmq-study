@@ -29,6 +29,7 @@ public class MsgConfirmListener implements RabbitTemplate.ConfirmCallback {
         if (ack) {
             log.info("成功发送消息:{}", msgId);
         } else {
+            // 发送失败 订单作废
             dealMsgNack(msgId);
         }
 

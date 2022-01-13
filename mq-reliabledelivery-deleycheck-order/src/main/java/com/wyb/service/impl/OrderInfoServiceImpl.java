@@ -33,11 +33,16 @@ public class OrderInfoServiceImpl implements IOrderInfoService {
     @Autowired
     private MsgSender msgSender;
 
+    /**
+     * 事务回滚 不发送消息
+     * @param orderInfo:订单实体
+     */
     @Transactional
     @Override
     public void saveOrderInfo(OrderInfo orderInfo) {
 
         try {
+//            int a= 1/0;
             orderInfoMapper.saveOrderInfo(orderInfo);
         } catch (Exception e) {
             log.error("操作数据库失败:{}", e);

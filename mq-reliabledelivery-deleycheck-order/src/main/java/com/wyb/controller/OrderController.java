@@ -34,7 +34,12 @@ public class OrderController {
         orderInfo.setMoney(10000);
         orderInfo.setProductNo(1);
 
-        orderInfoService.saveOrderInfoWithMessage(orderInfo);
+        try {
+            orderInfoService.saveOrderInfoWithMessage(orderInfo);
+        }
+        catch (RuntimeException e) {
+            return e.getMessage();
+        }
         return "ok";
     }
 

@@ -54,6 +54,7 @@ public class MsgSender implements InitializingBean {
             @Override
             public Message postProcessMessage(Message message) throws AmqpException {
                 message.getMessageProperties().setHeader("x-delay", MqConst.DELAY_TIME);//设置延迟时间
+//                message.getMessageProperties().setDelay(MqConst.DELAY_TIME);//设置延迟时间
                 return message;
             }
         }, correlationData);
