@@ -65,7 +65,7 @@ public class MqConsumer {
 
         }catch (Exception e) {
             if(e instanceof BizExp) {
-                channel.basicReject(deliveryTag,false);
+               channel.basicReject(deliveryTag,false);
             }
             log.info("异常:{}",e.getMessage());
         }

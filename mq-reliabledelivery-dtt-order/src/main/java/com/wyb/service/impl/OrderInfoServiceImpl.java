@@ -30,6 +30,8 @@ public class OrderInfoServiceImpl implements IOrderInfoService {
 
     @Autowired
     private MsgSender msgSender;
+    @Autowired
+    private IOrderInfoService orderInfoService;
 
     @Transactional
     @Override
@@ -48,13 +50,13 @@ public class OrderInfoServiceImpl implements IOrderInfoService {
     }
 
     @Override
-    public void saveOrderInfoWithMessage(OrderInfo orderInfo) throws JsonProcessingException {
+    public void saveOrderInfoWithMessage(OrderInfo orderInfo) {
 
         //构建消息对象
         MessageContent messageContent = builderMessageContent(orderInfo.getOrderNo(), orderInfo.getProductNo());
 
-        //保存数据库
-        saveOrderInfo(orderInfo, messageContent);
+        //保存数据库 异常回滚后不会执行发送消息
+        orderInfoService.saveOrderInfo(orderInfo, messageContent);
 
         //构建消息发送对象
         MsgTxtBo msgTxtBo = new MsgTxtBo();

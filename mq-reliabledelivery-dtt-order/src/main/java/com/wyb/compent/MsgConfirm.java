@@ -9,13 +9,14 @@ import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 @Component
 @Slf4j
 public class MsgConfirm implements RabbitTemplate.ConfirmCallback {
 
-    @Autowired
+    @Resource
     private MsgContentMapper msgContentMapper;
 
     @Override

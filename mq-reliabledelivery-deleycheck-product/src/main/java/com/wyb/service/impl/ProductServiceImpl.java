@@ -22,8 +22,11 @@ public class ProductServiceImpl implements IProductService {
         boolean updateFlag = true;
         try {
             //更新库存
-            productInfoMapper.updateProductStoreById(msgTxtBo.getProductNo());
-            //System.out.println(1/0);
+            int i = productInfoMapper.updateProductStoreById(msgTxtBo.getProductNo());
+            if (i <= 0) {
+                throw new BizExp(0, "更新数据库异常");
+            }
+//            System.out.println(1/0);
         } catch (Exception e) {
             log.error("更新数据库失败:{}", e);
             throw new BizExp(0, "更新数据库异常");

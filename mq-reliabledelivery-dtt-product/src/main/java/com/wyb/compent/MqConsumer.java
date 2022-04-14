@@ -87,7 +87,7 @@ public class MqConsumer {
                 //更新消息表也业务表
                 productService.updateProductStore(msgTxtBo);
                 //消息签收
-                System.out.println(1/0);
+//                System.out.println(1/0);
                 channel.basicAck(deliveryTag, false);
             } catch (Exception e) {
                 /**

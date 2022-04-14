@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.UUID;
 
@@ -27,11 +28,15 @@ import java.util.UUID;
 @Service
 public class OrderInfoServiceImpl implements IOrderInfoService {
 
-    @Autowired
+    @Resource
     private OrderInfoMapper orderInfoMapper;
 
     @Autowired
     private MsgSender msgSender;
+
+    @Resource
+    private IOrderInfoService orderInfoService;
+
 
     /**
      * 事务回滚 不发送消息
@@ -57,7 +62,7 @@ public class OrderInfoServiceImpl implements IOrderInfoService {
         MessageContent messageContent = builderMessageContent(orderInfo.getOrderNo(), orderInfo.getProductNo());
 
         //保存数据库
-        this.saveOrderInfo(orderInfo);
+        orderInfoService.saveOrderInfo(orderInfo);
 
         //构建消息发送对象
         MsgTxtBo msgTxtBo = new MsgTxtBo();

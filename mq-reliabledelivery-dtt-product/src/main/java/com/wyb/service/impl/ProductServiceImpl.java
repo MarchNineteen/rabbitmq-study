@@ -28,7 +28,7 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public boolean updateProductStore(MsgTxtBo msgTxtBo) {
         boolean updateFlag = true;
-        try{
+        try {
             //更新库存
             productInfoMapper.updateProductStoreById(msgTxtBo.getProductNo());
 
@@ -39,10 +39,10 @@ public class ProductServiceImpl implements IProductService {
             messageContent.setMsgStatus(MsgStatusEnum.CONSUMER_SUCCESS.getCode());
             msgContentMapper.updateMsgStatus(messageContent);
 
-            //System.out.println(1/0);
-        }catch (Exception e) {
-            log.error("更新数据库失败:{}",e);
-            throw new BizExp(0,"更新数据库异常");
+//            System.out.println(1 / 0);
+        } catch (Exception e) {
+            log.error("更新数据库失败:{}", e);
+            throw new BizExp(0, "更新数据库异常");
         }
         return updateFlag;
     }
